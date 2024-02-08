@@ -15,7 +15,7 @@
                 <a class="nav-link active" aria-current="page" href="/addAccount">Add Account</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/user">Candidats</a>
+                <a class="nav-link active" aria-current="page"  v-on:click="pageCandidatsList">Candidats</a>
               </li>
               <li class="nav-item" v-if="getUser() == 'admin'">
                 <a class="nav-link active" aria-current="page" href="/admin">Users</a>
@@ -42,6 +42,9 @@ export default {
         getUser(){
             //alert("iam in get user");
             return localStorage.getItem('useraccount')
+        },
+        pageCandidatsList(){
+          this.$router.push({ name: "user" });
         }
     }
 }
